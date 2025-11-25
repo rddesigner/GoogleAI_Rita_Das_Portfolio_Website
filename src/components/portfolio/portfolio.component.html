@@ -1,0 +1,43 @@
+<section id="portfolio" class="py-20">
+  <div class="container mx-auto">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-bold mb-4">My Portfolio</h2>
+      <div class="w-20 h-1 bg-light-accent dark:bg-dark-accent mx-auto"></div>
+    </div>
+    
+    <div class="flex justify-center flex-wrap gap-2 md:gap-4 mb-12">
+      @for(category of categories(); track category) {
+        <button 
+          (click)="selectCategory(category)"
+          class="px-5 py-2 text-sm md:text-base font-semibold rounded-full transition-all duration-300 transform hover:scale-105"
+          [class.bg-light-accent]="selectedCategory() === category"
+          [class.dark:bg-dark-accent]="selectedCategory() === category"
+          [class.text-white]="selectedCategory() === category"
+          [class.bg-light-card]="selectedCategory() !== category"
+          [class.dark:bg-dark-card]="selectedCategory() !== category"
+          [class.text-light-text]="selectedCategory() !== category"
+          [class.dark:text-dark-text]="selectedCategory() !== category">
+            {{ category }}
+        </button>
+      }
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      @for(project of filteredProjects(); track project.title) {
+        <a [href]="project.projectUrl" target="_blank" rel="noopener noreferrer" class="block bg-light-card dark:bg-dark-card rounded-lg shadow-lg overflow-hidden group transform hover:-translate-y-2 transition-transform duration-300 animate-fade-in-up">
+          <div class="relative">
+            <img [src]="project.imageUrl" [alt]="project.title" class="w-full h-56 object-cover transition-transform duration-300 group-hover:scale-110">
+            <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-300"></div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">{{ project.title }}</h3>
+            <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{{ project.description }}</p>
+            <span class="inline-block mt-4 px-3 py-1 text-xs font-semibold rounded-full bg-light-accent/10 text-light-accent dark:bg-dark-accent/20 dark:text-dark-accent">
+                {{ project.category }}
+            </span>
+          </div>
+        </a>
+      }
+    </div>
+  </div>
+</section>

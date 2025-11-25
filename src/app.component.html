@@ -1,0 +1,14 @@
+<div class="text-light-text dark:text-dark-text min-h-screen">
+  <app-header [isDarkMode]="isDarkMode()" (toggleTheme)="toggleTheme()" />
+
+  <main class="overflow-x-hidden container mx-auto px-6">
+    <app-hero />
+    <app-about />
+    <app-experience />
+    <app-skills />
+    <app-portfolio />
+    <app-contact />
+  </main>
+
+  <app-footer />
+</div>
