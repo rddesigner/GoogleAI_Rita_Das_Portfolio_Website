@@ -11,17 +11,17 @@ interface SkillCategory {
   template: `
     <section id="skills" class="py-20">
       <div class="text-center mb-12">
-        <h2 class="text-4xl font-bold mb-4">My Skills</h2>
-        <div class="w-20 h-1 bg-light-accent dark:bg-dark-accent mx-auto"></div>
+        <h2 class="text-4xl font-bold mb-4 gradient-text">My Skills</h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-accent-pink to-accent-violet mx-auto"></div>
       </div>
 
       <div class="max-w-6xl mx-auto space-y-12">
         @for(category of skillData; track category.name) {
           <div>
-            <h3 class="text-2xl font-bold text-center mb-6">{{ category.name }}</h3>
+            <h3 class="text-2xl font-bold text-center mb-6 text-text-primary">{{ category.name }}</h3>
             <div class="flex flex-wrap justify-center gap-3">
               @for(skill of category.skills; track skill) {
-                <span class="px-4 py-2 bg-light-card dark:bg-dark-card rounded-md shadow-md text-gray-700 dark:text-gray-300 font-medium">
+                <span class="px-4 py-2 bg-secondary rounded-md shadow-md text-text-secondary font-medium">
                   {{ skill }}
                 </span>
               }

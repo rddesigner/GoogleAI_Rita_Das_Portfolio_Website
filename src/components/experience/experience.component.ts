@@ -13,25 +13,25 @@ interface Experience {
   template: `
     <section id="experience" class="py-20">
       <div class="text-center mb-12">
-        <h2 class="text-4xl font-bold mb-4">Work Experience</h2>
-        <div class="w-20 h-1 bg-light-accent dark:bg-dark-accent mx-auto"></div>
+        <h2 class="text-4xl font-bold mb-4 gradient-text">Work Experience</h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-accent-pink to-accent-violet mx-auto"></div>
       </div>
       
       <div class="relative max-w-4xl mx-auto">
         <!-- Vertical Line -->
-        <div class="absolute left-1/2 w-0.5 h-full bg-gray-300 dark:bg-gray-600 transform -translate-x-1/2"></div>
+        <div class="absolute left-1/2 w-0.5 h-full bg-secondary transform -translate-x-1/2"></div>
 
         @for(job of experiences; track job.company; let i = $index) {
           <div class="relative mb-12 flex items-center" [class.justify-start]="i % 2 === 0" [class.justify-end]="i % 2 !== 0">
             <div class="w-1/2" [class.pr-8]="i % 2 === 0" [class.pl-8]="i % 2 !== 0">
-              <div class="bg-light-card dark:bg-dark-card p-6 rounded-lg shadow-lg" [class.text-right]="i % 2 !== 0">
-                <h3 class="text-xl font-bold text-light-accent dark:text-dark-accent">{{ job.role }}</h3>
-                <p class="font-semibold mb-2">{{ job.company }}</p>
-                <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">{{ job.duration }}</p>
-                <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300" [class.text-left]="i % 2 !== 0">
+              <div class="bg-secondary p-6 rounded-lg shadow-lg" [class.text-right]="i % 2 !== 0">
+                <h3 class="text-xl font-bold text-accent-pink">{{ job.role }}</h3>
+                <p class="font-semibold mb-2 text-text-primary">{{ job.company }}</p>
+                <p class="text-sm text-text-secondary mb-3">{{ job.duration }}</p>
+                <ul class="space-y-2 text-sm text-text-primary" [class.text-left]="i % 2 !== 0">
                   @for(point of job.description; track point) {
                     <li class="flex items-start">
-                        <svg class="w-3 h-3 mr-2 mt-1 flex-shrink-0 text-light-accent dark:text-dark-accent" fill="currentColor" viewBox="0 0 8 8"><circle cx="4" cy="4" r="3"/></svg>
+                        <svg class="w-3 h-3 mr-2 mt-1 flex-shrink-0 text-accent-violet" fill="currentColor" viewBox="0 0 8 8"><circle cx="4" cy="4" r="3"/></svg>
                         <span>{{ point }}</span>
                     </li>
                   }
@@ -39,7 +39,7 @@ interface Experience {
               </div>
             </div>
             <!-- Timeline Dot -->
-            <div class="absolute left-1/2 w-4 h-4 bg-light-accent dark:bg-dark-accent rounded-full transform -translate-x-1/2 border-4 border-light-bg dark:border-dark-bg"></div>
+            <div class="absolute left-1/2 w-4 h-4 bg-accent-violet rounded-full transform -translate-x-1/2 border-4 border-primary"></div>
           </div>
         }
       </div>
@@ -92,6 +92,16 @@ export class ExperienceComponent {
         'Researched competitors to craft innovative, user-centric experiences.',
         'Designed and delivered responsive HTML templates, design assets, and Zeplin specs.',
         'Designed multiple mobile apps including Event 4us, MedLocator, and LyfeChat.',
+      ],
+    },
+    {
+      role: 'Web Designer',
+      company: 'SOFTZ SOLUTIONS PVT LTD, Kolkata',
+      duration: 'Aug 2010 – Feb 2011',
+      description: [
+        'Designed desktop UI using Photoshop and developed responsive HTML templates.',
+        'Collaborated with developers to guide design implementation and conduct UI quality evaluations.',
+        'Contributed to designer recruitment through portfolio and skill assessments.',
       ],
     },
   ];

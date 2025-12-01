@@ -11,27 +11,35 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Poppins', sans-serif; }
-    /* Simple smooth scroll */
+    body { 
+      font-family: 'Poppins', sans-serif;
+      background-color: #0D0C22;
+      color: #d1d5db;
+    }
     html { scroll-behavior: smooth; }
     .animate-fade-in-up {
       animation: fadeInUp 0.8s ease-out forwards;
     }
+    .gradient-text {
+      background: linear-gradient(to right, #F948B7, #8F00FF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+    }
   </style>
   <script>
     tailwind.config = {
-      darkMode: 'class',
       theme: {
         extend: {
           colors: {
-            'dark-bg': '#111827',
-            'dark-card': '#1f2937',
-            'dark-text': '#d1d5db',
-            'dark-accent': '#8b5cf6',
-            'light-bg': '#f9fafb',
-            'light-card': '#ffffff',
-            'light-text': '#1f2937',
-            'light-accent': '#6d28d9',
+            'primary': '#0D0C22',
+            'secondary': '#19192E',
+            'accent-pink': '#F948B7',
+            'accent-violet': '#8F00FF',
+            'highlight': '#F3CA20',
+            'text-primary': '#d1d5db',
+            'text-secondary': '#9ca3af',
           },
           animation: {
             'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
@@ -63,7 +71,7 @@
 }
 </script>
 </head>
-<body class="bg-light-bg dark:bg-dark-bg transition-colors duration-500">
+<body class="bg-primary">
   <app-root></app-root>
 </body>
 </html>
